@@ -11,8 +11,10 @@ if __name__ == '__main__':
             print("再见!!!")
             sys.exit()
         for line in fp.readlines():
-            if line.find(keyword) != -1:
-                print(line.strip())
+            line = line.strip()
+            _index = line.find(keyword,0)
+            if  _index != -1:
+                print('%s \033[1;31m%s\033[0m%s' % (line[:_index],line[_index:len(keyword)],line[len(keyword):])) 
                 i+=1
         print(u'一共出现了:',i)
         i = 0
